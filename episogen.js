@@ -7,9 +7,10 @@ names = [
     "徳島", "香川", "愛媛", "高知", "福岡", "佐賀", "長崎", 
     "熊本", "大分", "宮崎", "鹿児島", "沖縄"
 ]
+
 function display(){
     $('#names').empty()
-    for (var i of names){
+    for (var i of names.sort()){
 	$('#names')
 	    .append($('<span class="test">')
 		    .append($(`<span>${i}</span>`))
@@ -18,9 +19,16 @@ function display(){
 		   )
     }
     $('.button').on('click', function(e) {
-	console.log(e.target.parentElement.children[0].innerHTML)
+	// console.log(e.target.parentElement.children[0].innerHTML)
 	names = names.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
+    });
+    $('.add').on('click', function(e) {
+	let name = $('#add').val()
+	if(! names.includes(name)){
+	    names.push(name)
+	    display()
+	}
     });
 }
 

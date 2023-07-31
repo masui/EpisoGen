@@ -14,7 +14,7 @@ a {
     border: 10;
     padding: 10;
     border-radius: 10px;
-    display: inline-block;
+    display: inline-block; /* これが大事 */
 }
 .button {
     color: black;
@@ -26,4 +26,13 @@ a {
 .names {
     padding:10;
     background-color:yellow;
+}
+
+.add {
+    color: black;
+    background-color: #ddd;
+    margin: 5;
+    border: 10;
+    padding: 10;
+    border-radius: 10px;
 }
