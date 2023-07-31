@@ -25,7 +25,7 @@ function display(){
     });
     $('.add').on('click', function(e) {
 	let name = $('#add').val()
-	if(! names.includes(name)){
+	if(name != '' && ! names.includes(name)){
 	    names.push(name)
 	    display()
 	}
