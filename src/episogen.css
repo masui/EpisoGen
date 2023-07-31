@@ -23,7 +23,7 @@ a {
     border-radius: 7px;
     font-size: 20px;
 }
-.names {
+.answers {
     padding:10;
     background-color:yellow;
 }
@@ -31,8 +31,9 @@ a {
 .add {
     color: black;
     background-color: #ddd;
-    margin: 5;
-    border: 10;
+    margin: 10;
+    border: 0;
     padding: 10;
     border-radius: 10px;
+    vertical-align: top;
 }

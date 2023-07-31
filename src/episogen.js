@@ -1,4 +1,4 @@
-names = [
+answers = [
     "北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", 
     "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川", 
     "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", 
@@ -9,9 +9,9 @@ names = [
 ]
 
 function display(){
-    $('#names').empty()
-    for (var i of names.sort()){
-	$('#names')
+    $('#answers').empty()
+    for (var i of answers.sort()){
+	$('#answers')
 	    .append($('<span class="test">')
 		    .append($(`<span>${i}</span>`))
 		    .append($('<span> </span>'))
@@ -20,13 +20,13 @@ function display(){
     }
     $('.button').on('click', function(e) {
 	// console.log(e.target.parentElement.children[0].innerHTML)
-	names = names.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	answers = answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
     $('.add').on('click', function(e) {
-	let name = $('#add').val()
-	if(name != '' && ! names.includes(name)){
-	    names.push(name)
+	let answer = $('#add').val()
+	if(answer != '' && ! answers.includes(answer)){
+	    answers.push(answer)
 	    display()
 	}
     });
