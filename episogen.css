@@ -1,0 +1,29 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin:10;
+}
+a:link { color: #0000f0 ; }
+a:visited { color: #0000f0 ; }
+a {
+    text-decoration: none;
+}
+.test {
+    color: black;
+    background-color: #ddd;
+    margin: 5;
+    border: 10;
+    padding: 10;
+    border-radius: 10px;
+    display: inline-block;
+}
+.button {
+    color: black;
+    background-color: #fff;
+    padding: 3;
+    border-radius: 7px;
+    font-size: 20px;
+}
+.names {
+    padding:10;
+    background-color:yellow;
+}
