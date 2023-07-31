@@ -4,11 +4,34 @@
     <title>title</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript">
-      $(function() {
-	  console.log( "ready!" );
+      names = ['北海道', '東京', '大阪', '奈良']
+      function display(){
+	  $('#names').empty()
+	  for (var i of names){
+	      $('#names')
+		  .append($('<span class="test">')
+			  .append($(`<span>${i}</span>`))
+			  .append($('<span> </span>'))
+			  .append($('<span class="button">x</span>'))
+			 )
+	  }
 	  $('.button').on('click', function(e) {
 	      console.log(e.target.parentElement.children[0].innerHTML)
+	      names = names.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	      display()
 	  });
+      }
+      
+      $(function() {
+	  console.log( "ready!" );
+	  display()
+	  /*
+	  $('.button').on('click', function(e) {
+	      console.log(e.target.parentElement.children[0].innerHTML)
+	      names = names.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	      display()
+	  });
+	  */
       });
     </script>
     <link rel="stylesheet" href="test.css" type="text/css">
@@ -25,7 +48,7 @@
       .test {
 	  color: black;
 	  background-color: #ddd;
-	  margin: d50;
+	  margin: 5;
 	  border: 10;
 	  padding: 10;
 	  border-radius: 10px;
@@ -40,10 +63,12 @@
     </style>
   </head>
   <body>
-    <div style="padding:10;">
+    <div style="padding:10;" id="names">
+      <!--
       <span class="test"><span>span</span> <span class="button">x</span></span>
       <span class="test"><span>span2</span> <span class="button">XX</span></span>
       <span class="test">span2 <span class="button">XX</span></span>
+      -->
     </div>
   </body>
 </html>
