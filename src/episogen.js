@@ -1,4 +1,6 @@
-answers = [
+var data = {}
+
+data.answers = [
     "北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", 
     "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川", 
     "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", 
@@ -8,7 +10,7 @@ answers = [
     "熊本", "大分", "宮崎", "鹿児島", "沖縄"
 ]
 
-questions = [
+data.questions = [
     "ナショナル坊やは?",
     "公園でコケたのは?",
     "トイレを借りたのは?",
@@ -37,7 +39,7 @@ questions = [
 function display(){
     $('#answers').empty()
     // for (var i of answers.sort()){
-    for (var i of answers){
+    for (var i of data.answers){
 	$('#answers')
 	    .append($('<span class="answer">')
 		    .append($(`<span>${i}</span>`))
@@ -46,19 +48,19 @@ function display(){
 		   )
     }
     $('.answerdelete').on('click', function(e) {
-	answers = answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	data.answers = data.answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
     $('.answeradd').on('click', function(e) {
 	let answer = $('#answeradd').val()
-	if(answer != '' && ! answers.includes(answer)){
-	    answers.unshift(answer)
+	if(answer != '' && ! data.answers.includes(answer)){
+	    data.answers.unshift(answer)
 	    display()
 	}
     });
     
     $('#questions').empty()
-    for (var i of questions){
+    for (var i of data.questions){
 	$('#questions')
 	    .append($('<span class="question">')
 		    .append($(`<span>${i}</span>`))
@@ -67,13 +69,13 @@ function display(){
 		   )
     }
     $('.questiondelete').on('click', function(e) {
-	questions = questions.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	data.questions = data.questions.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
     $('.questionadd').on('click', function(e) {
 	let question = $('#questionadd').val()
-	if(question != '' && ! questions.includes(question)){
-	    questions.unshift(question)
+	if(question != '' && ! data.questions.includes(question)){
+	    data.questions.unshift(question)
 	    display()
 	}
     });
@@ -84,10 +86,13 @@ $(function() {
     $('#write').on('click', function(e) {
 	alert('episopass.jsonにデータを書き出します')
 	// こんな方法で良いのだろうか??
+	/*
 	var outdata = {}
 	outdata['answers'] = answers
 	outdata['questions'] = questions
 	var result = JSON.stringify(outdata)
+	*/
+	var result = JSON.stringify(data)
 	const a = document.createElement('a');
         a.href = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)))
 	a.download = 'episopass.json';
