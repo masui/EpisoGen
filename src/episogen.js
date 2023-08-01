@@ -10,23 +10,24 @@ answers = [
 
 function display(){
     $('#answers').empty()
-    for (var i of answers.sort()){
+    // for (var i of answers.sort()){
+    for (var i of answers){
 	$('#answers')
-	    .append($('<span class="test">')
+	    .append($('<span class="answer">')
 		    .append($(`<span>${i}</span>`))
 		    .append($('<span> </span>'))
-		    .append($('<span class="button">x</span>'))
+		    .append($('<span class="answerdelete">x</span>'))
 		   )
     }
-    $('.button').on('click', function(e) {
+    $('.answerdelete').on('click', function(e) {
 	// console.log(e.target.parentElement.children[0].innerHTML)
 	answers = answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
-    $('.add').on('click', function(e) {
-	let answer = $('#add').val()
+    $('.answeradd').on('click', function(e) {
+	let answer = $('#answeradd').val()
 	if(answer != '' && ! answers.includes(answer)){
-	    answers.push(answer)
+	    answers.unshift(answer)
 	    display()
 	}
     });

@@ -7,7 +7,12 @@ a:visited { color: #0000f0 ; }
 a {
     text-decoration: none;
 }
-.test {
+
+.answers {
+    padding:10;
+    background-color:yellow;
+}
+.answer {
     color: black;
     background-color: #ddd;
     margin: 5;
@@ -16,19 +21,15 @@ a {
     border-radius: 10px;
     display: inline-block; /* これが大事 */
 }
-.button {
+.answerdelete {
     color: black;
     background-color: #fff;
     padding: 3;
     border-radius: 7px;
     font-size: 20px;
 }
-.answers {
-    padding:10;
-    background-color:yellow;
-}
 
-.add {
+.answeradd {
     color: black;
     background-color: #ddd;
     margin: 10;
