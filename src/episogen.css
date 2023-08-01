@@ -36,6 +36,10 @@ a {
     padding: 10;
     border-radius: 10px;
     vertical-align: top;
+    width: 400px;
+}
+#answeradd {
+    width:300;
 }
 
 .questions {
@@ -66,4 +70,7 @@ a {
     padding: 10;
     border-radius: 10px;
     vertical-align: top;
+}
+#questionadd {
+    width: 400;
 }
