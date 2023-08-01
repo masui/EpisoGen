@@ -16,10 +16,11 @@
       <li>EpisoPassは、秘密の質問に対する回答からパスワードを生成するシステムです。</li>
       <li>自分だけが知ってる質問に対して回答する操作を繰り返すことにより、自分しか生成できない文字列を作ることができます。</li>
       <li>たとえば <a href="http://www.pitecan.com/p/Amazon_masui@pitecan.com.html">増井のAmazonパスワード</a> に正しく回答すると、増井のパスワードを得ることができます。</li>
-      <li>データ書き出し</li>
-      <li>データ読み込み</li>
-      <li>全データクリア</li>
     </ul>
+
+    <input type="button" value="データ書き出し" id="write">&nbsp;
+    <input type="button" value="データ読み込み">&nbsp;
+    <input type="button" value="データクリア">&nbsp;
     
     <h2>候補リスト</h2>
     <ul>
@@ -30,11 +31,11 @@
     <textarea placeholder="東京
 大阪
 ..." id="answeradd" style="height:60;"></textarea>
-    <span class="answeradd">追加</span>
+    <span class="answeradd">解答候補追加</span>
     
     <h2>質問リスト</h2>
     <ul>
-      <li>解答を一意に選べる秘密の問題リストを作成してください</li>
+      <li>解答を一意に選べる秘密の問題を作成してください</li>
     </ul>
     <div class="questions" id="questions"></div>
     <p></p>
