@@ -8,6 +8,13 @@ answers = [
     "熊本", "大分", "宮崎", "鹿児島", "沖縄"
 ]
 
+questions = [
+    "ナショナル坊やは?",
+    "公園でコケたのは?",
+    "トイレを借りたのは?",
+    "床屋と飲んだのは?"
+]
+
 function display(){
     $('#answers').empty()
     // for (var i of answers.sort()){
@@ -20,7 +27,6 @@ function display(){
 		   )
     }
     $('.answerdelete').on('click', function(e) {
-	// console.log(e.target.parentElement.children[0].innerHTML)
 	answers = answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
@@ -28,6 +34,27 @@ function display(){
 	let answer = $('#answeradd').val()
 	if(answer != '' && ! answers.includes(answer)){
 	    answers.unshift(answer)
+	    display()
+	}
+    });
+    
+    $('#questions').empty()
+    for (var i of questions){
+	$('#questions')
+	    .append($('<span class="question">')
+		    .append($(`<span>${i}</span>`))
+		    .append($('<span> </span>'))
+		    .append($('<span class="questiondelete">x</span>'))
+		   )
+    }
+    $('.questiondelete').on('click', function(e) {
+	questions = questions.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	display()
+    });
+    $('.questionadd').on('click', function(e) {
+	let question = $('#questionadd').val()
+	if(question != '' && ! questions.includes(question)){
+	    questions.unshift(question)
 	    display()
 	}
     });
