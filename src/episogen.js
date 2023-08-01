@@ -82,24 +82,15 @@ function display(){
 $(function() {
     display()
     $('#write').on('click', function(e) {
-	alert('episogen.jsonにデータを書き出します')
+	alert('episopass.jsonにデータを書き出します')
+	// こんな方法で良いのだろうか??
 	var outdata = {}
 	outdata['answers'] = answers
 	outdata['questions'] = questions
 	var result = JSON.stringify(outdata)
 	const a = document.createElement('a');
-	//a.href = 'data:text/plain,' + encodeURIComponent('test text\n');
         a.href = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)))
-	a.download = 'episogen.json';
+	a.download = 'episopass.json';
 	a.click();
-	/*
-	var result = JSON.stringify(answers);
-        var url = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)))
-	console.log(chrome)
-        chrome.downloads.download({
-            url: url,
-            filename: 'episogen.json'
-        });
-	*/
     })
 });
