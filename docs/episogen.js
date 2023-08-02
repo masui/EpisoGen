@@ -93,8 +93,12 @@ $(function() {
 	var result = JSON.stringify(outdata)
 	*/
 	var result = JSON.stringify(data)
+	result = `
+const qa = ''
+`
 	const a = document.createElement('a');
         a.href = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)))
+        a.href = 'data:application/text;base64,' + btoa(unescape(encodeURIComponent(result)))
 	a.download = 'episopass.json';
 	a.click();
     })
