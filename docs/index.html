@@ -12,39 +12,28 @@
   <body>
     <h1>EpisoGen - EpisoPassの問題作成</h1>
 
-    <ul>
-      <li>EpisoPassは、秘密の質問に対する回答からパスワードを生成するシステムです。</li>
-      <li>自分だけが知ってる質問に対して回答する操作を繰り返すことにより、自分しか生成できない文字列を作ることができます。</li>
-      <li>たとえば <a href="http://www.pitecan.com/p/Amazon_masui@pitecan.com.html">増井のAmazonパスワード</a> に正しく回答すると、増井のパスワードを得ることができます。</li>
-      <li>質問リストの一部から問題ページを生成する。</li>
-    </ul>
-
     <input type="button" value="データ書き出し" id="write">&nbsp;
     <input type="button" value="データ読み込み">&nbsp;
     <input type="button" value="シャッフル">&nbsp;
-    <input type="button" value="データクリア">&nbsp;
-    問題数10で
+
+    <p/>
+    
+    問題数 <input type="text" value="10" size=3 /> で
     <input type="button" value="EpisoPassページ生成">&nbsp;
     
     <h2>候補リスト</h2>
-    <ul>
-      <li>解答候補リストを作成してください</li>
-    </ul>
     <div class="answers" id="answers"></div>
     <p></p>
-    <textarea placeholder="東京
-大阪
+    <textarea placeholder="世田谷
+中町
 ..." id="answeradd" style="height:60;"></textarea>
     <span class="answeradd">解答候補追加</span>
     
     <h2>質問リスト</h2>
-    <ul>
-      <li>解答を一意に選べる秘密の問題を作成してください</li>
-    </ul>
     <div class="questions" id="questions"></div>
     <p></p>
-    <textarea placeholder="右足を怪我したのは?
-コケた公園は?
+    <textarea placeholder="床屋と飲んだのは?
+滝壺に落ちたのは?
 ..." id="questionadd" style="height:70;"></textarea>
     <span class="questionadd">質問追加</span>
   </body>
