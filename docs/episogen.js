@@ -1,7 +1,7 @@
-var data = {}
+//var data = {}
 
-data.answers = [
-    "イギリス", "神戸", "恵比寿", "富士山"
+answers = [
+    "神戸", "恵比寿", "大町"
     /*
     "北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", 
     "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川", 
@@ -13,7 +13,7 @@ data.answers = [
 */
 ]
 
-data.questions = [
+var questions = [
     "無限タコヤキしたのは?",
     "ナショナル坊やは?",
     "公園でコケたのは?",
@@ -43,7 +43,7 @@ data.questions = [
 function display(){
     $('#answers').empty()
     // for (var i of answers.sort()){
-    for (var i of data.answers){
+    for (var i of answers){
 	$('#answers')
 	    .append($('<span class="answer">')
 		    .append($(`<span>${i}</span>`))
@@ -52,19 +52,19 @@ function display(){
 		   )
     }
     $('.answerdelete').on('click', function(e) {
-	data.answers = data.answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	answers = answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
     $('.answeradd').on('click', function(e) {
 	let answer = $('#answeradd').val()
-	if(answer != '' && ! data.answers.includes(answer)){
-	    data.answers.unshift(answer)
+	if(answer != '' && ! answers.includes(answer)){
+	    answers.unshift(answer)
 	    display()
 	}
     });
     
     $('#questions').empty()
-    for (var i of data.questions){
+    for (var i of questions){
 	$('#questions')
 	    .append($('<span class="question">')
 		    .append($(`<span>${i}</span>`))
@@ -73,13 +73,13 @@ function display(){
 		   )
     }
     $('.questiondelete').on('click', function(e) {
-	data.questions = data.questions.filter(item => item != e.target.parentElement.children[0].innerHTML)
+	questions = questions.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
     $('.questionadd').on('click', function(e) {
 	let question = $('#questionadd').val()
-	if(question != '' && ! data.questions.includes(question)){
-	    data.questions.unshift(question)
+	if(question != '' && ! questions.includes(question)){
+	    questions.unshift(question)
 	    display()
 	}
     });
@@ -89,20 +89,33 @@ $(function() {
     display()
     $('#write').on('click', function(e) {
 	alert('episopass.jsonにデータを書き出します')
-	// こんな方法で良いのだろうか??
 	/*
+	// こんな方法で良いのだろうか??
 	var outdata = {}
 	outdata['answers'] = answers
 	outdata['questions'] = questions
 	var result = JSON.stringify(outdata)
 	*/
+	/*
 	var result = JSON.stringify(data)
 	result = `
 const qa = ''
 `
 	const a = document.createElement('a');
-        a.href = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)))
         a.href = 'data:application/text;base64,' + btoa(unescape(encodeURIComponent(result)))
+	*/
+
+	// 自力でJSONを生成
+	let out = []
+	out.push('{\n  "answers": [')
+	out.push('    "' + answers.join('",\n    "') + '"')
+        out.push('  ],\n  "questions": [')
+	out.push('    "' + questions.join('",\n    "') + '"')
+        out.push('  ]\n}\n')
+        result = out.join('\n')
+	
+	const a = document.createElement('a');
+        a.href = 'data:application/json;base64,' + btoa(unescape(encodeURIComponent(result)))
 	a.download = 'episopass.json';
 	a.click();
     })
