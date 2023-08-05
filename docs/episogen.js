@@ -1,13 +1,9 @@
-//var data = {}
-
 var answers = [
     "滋賀", "神戸", "池袋", "大町"
 ]
 
 var questions = [
-    "額をケガしたのは?",
-    "公園でコケたのは?",
-    "眼鏡をなくしたのは?"
+    "額をケガしたのは?", "眼鏡をなくしたのは?"
 ]
 
 function display(){
@@ -17,8 +13,8 @@ function display(){
 	$('#answers')
 	    .append($('<span class="answer">')
 		    .append($(`<span>${i}</span>`))
-		    .append($('<span> </span>'))
-		    .append($('<span class="answerdelete">x</span>'))
+		    .append($('<span>&nbsp;&nbsp;</span>'))
+		    .append($('<span class="answerdelete">×</span>'))
 		   )
     }
     $('.answerdelete').on('click', function(e) {
@@ -40,8 +36,8 @@ function display(){
 	$('#questions')
 	    .append($('<span class="question">')
 		    .append($(`<span>${i}</span>`))
-		    .append($('<span> </span>'))
-		    .append($('<span class="questiondelete">x</span>'))
+		    .append($('<span>&nbsp;&nbsp;</span>'))
+		    .append($('<span class="questiondelete">×</span>'))
 		   )
     }
     $('.questiondelete').on('click', function(e) {
@@ -68,7 +64,10 @@ function handleFileSelect(evt) {
 	questions = data.questions
 	answers = data.answers
 	display()
-	$('#read').val('') // on('change')が何度も効くようにする
+	
+	// on('change')が何度も効くようにする
+	// https://qiita.com/_Keitaro_/items/57b1c5dd36b7bed08ad8
+	$('#read').val('')
     }
     reader.readAsText(f);
 }
@@ -77,7 +76,7 @@ function handleFileSelect(evt) {
 $(function() {
     display()
     $('#write').on('click', function(e) {
-	alert('episopass.jsonにデータを書き出します')
+	alert('ダウンロードフォルダのepisopass.jsonにデータを書き出します')
 	// 自力でJSONを生成
 	let out = []
 	out.push('{\n  "answers": [')
@@ -92,13 +91,12 @@ $(function() {
 	a.download = 'episopass.json';
 	a.click();
     })
-    
+
+    // input=file のファイル名を表示させない工夫
+    // https://qiita.com/shiva_it/items/ae95d9e1d0977fc0bf22
     $('#read').on('change', handleFileSelect);
     $('#fileSelect').on('click', function(e){
-	//alert('clicked')
-	//alert(document.getElementById("read"))
-	document.getElementById("read").click()
-	//$('#read').click();
+	$('#read').click();
     })
 });
-//}, false);
+
