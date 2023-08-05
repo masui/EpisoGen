@@ -77,23 +77,7 @@ function handleFileSelect(evt) {
 $(function() {
     display()
     $('#write').on('click', function(e) {
-	// alert('episopass.jsonにデータを書き出します')
-	/*
-	// こんな方法で良いのだろうか??
-	var outdata = {}
-	outdata['answers'] = answers
-	outdata['questions'] = questions
-	var result = JSON.stringify(outdata)
-	*/
-	/*
-	var result = JSON.stringify(data)
-	result = `
-const qa = ''
-`
-	const a = document.createElement('a');
-        a.href = 'data:application/text;base64,' + btoa(unescape(encodeURIComponent(result)))
-	*/
-
+	alert('episopass.jsonにデータを書き出します')
 	// 自力でJSONを生成
 	let out = []
 	out.push('{\n  "answers": [')
@@ -109,5 +93,12 @@ const qa = ''
 	a.click();
     })
     
-    $('.read').on('change', handleFileSelect);
+    $('#read').on('change', handleFileSelect);
+    $('#fileSelect').on('click', function(e){
+	//alert('clicked')
+	//alert(document.getElementById("read"))
+	document.getElementById("read").click()
+	//$('#read').click();
+    })
 });
+//}, false);
