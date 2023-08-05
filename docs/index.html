@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="episogen.css" type="text/css">
   </head>
   <body>
-    <h1>EpisoGen - EpisoPassの問題作成</h1>
+    <h1>EpisoPassのデータ作成</h1>
 
     <input type="button" value="JSONデータ書き出し" id="write">&nbsp;
     <input type="button" value="JSONデータ読み込み">&nbsp;&nbsp;&nbsp;
-    問題数 <input type="text" value="10" size=3 /> で <input type="button" value="EpisoPassページ生成">
+    <input type="text" value="10" size=3 /> 個の質問で <input type="button" value="EpisoPassページ生成">
 
     <p>
     <hr>
@@ -22,17 +22,13 @@
     <h3>候補リスト</h3>
     <div class="answers" id="answers"></div>
     <p></p>
-    <textarea placeholder="長野
-中町
-..." id="answeradd" style="height:60;"></textarea>
-    <span class="answeradd">解答候補追加</span>
+    <textarea placeholder="候補の地名/人名などを入力 (複数行指定可)" id="answeradd" style="height:40;"></textarea>
+    <span class="answeradd">追加</span>
     
     <h3>質問リスト</h3>
     <div class="questions" id="questions"></div>
     <p></p>
-    <textarea placeholder="床屋と飲んだのは?
-滝壺に落ちたのは?
-..." id="questionadd" style="height:70;"></textarea>
-    <span class="questionadd">質問追加</span>
+    <textarea placeholder="秘密の質問を入力 (複数行指定可)" id="questionadd" style="height:40;"></textarea>
+    <span class="questionadd">追加</span>
   </body>
 </html>

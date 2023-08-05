@@ -1,12 +1,12 @@
 //var data = {}
 
 answers = [
-    "神戸", "恵比寿", "大町"
+    "滋賀", "神戸", "池袋", "大町"
 ]
 
 var questions = [
-    "無限タコヤキは?",
-    "ナショナル坊やは?",
+    "額をケガしたのは?",
+    "公園でコケたのは?",
     "眼鏡をなくしたのは?"
 ]
 
@@ -26,11 +26,13 @@ function display(){
 	display()
     });
     $('.answeradd').on('click', function(e) {
-	let answer = $('#answeradd').val()
-	if(answer != '' && ! answers.includes(answer)){
-	    answers.unshift(answer)
-	    display()
+	let newanswers = $('#answeradd').val().split(/\n/).reverse()
+	for (var answer of newanswers){
+	    if(answer != '' && ! answers.includes(answer)){
+		answers.unshift(answer)
+	    }
 	}
+	display()
     });
     
     $('#questions').empty()
@@ -47,11 +49,13 @@ function display(){
 	display()
     });
     $('.questionadd').on('click', function(e) {
-	let question = $('#questionadd').val()
-	if(question != '' && ! questions.includes(question)){
-	    questions.unshift(question)
-	    display()
+	let newquestions = $('#questionadd').val().split(/\n/).reverse()
+	for (var question of newquestions){
+	    if(question != '' && ! questions.includes(question)){
+		questions.unshift(question)
+	    }
 	}
+	display()
     });
 }
 
