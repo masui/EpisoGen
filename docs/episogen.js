@@ -1,6 +1,6 @@
 //var data = {}
 
-answers = [
+var answers = [
     "滋賀", "神戸", "池袋", "大町"
 ]
 
@@ -49,20 +49,35 @@ function display(){
 	display()
     });
     $('.questionaddbutton').on('click', function(e) {
-	let newquestions = $('#questionadd').val().split(/\n/).reverse()
+	let newquestions = $('#questionadd').val().split(/\n/)
 	for (var question of newquestions){
 	    if(question != '' && ! questions.includes(question)){
 		questions.unshift(question)
 	    }
 	}
+	questions = questions.sort()
 	display()
     });
 }
 
+function handleFileSelect(evt) {
+    var f = evt.target.files[0]
+    var reader = new FileReader();
+    reader.onload = function(e){
+	var data = JSON.parse(e.target.result)
+	questions = data.questions
+	answers = data.answers
+	display()
+	$('#read').val('') // on('change')が何度も効くようにする
+    }
+    reader.readAsText(f);
+}
+
+
 $(function() {
     display()
     $('#write').on('click', function(e) {
-	alert('episopass.jsonにデータを書き出します')
+	// alert('episopass.jsonにデータを書き出します')
 	/*
 	// こんな方法で良いのだろうか??
 	var outdata = {}
@@ -93,4 +108,6 @@ const qa = ''
 	a.download = 'episopass.json';
 	a.click();
     })
+    
+    $('.read').on('change', handleFileSelect);
 });
