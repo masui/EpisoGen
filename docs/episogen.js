@@ -25,7 +25,7 @@ function display(){
 	answers = answers.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
-    $('.answeradd').on('click', function(e) {
+    $('.answeraddbutton').on('click', function(e) {
 	let newanswers = $('#answeradd').val().split(/\n/).reverse()
 	for (var answer of newanswers){
 	    if(answer != '' && ! answers.includes(answer)){
@@ -48,7 +48,7 @@ function display(){
 	questions = questions.filter(item => item != e.target.parentElement.children[0].innerHTML)
 	display()
     });
-    $('.questionadd').on('click', function(e) {
+    $('.questionaddbutton').on('click', function(e) {
 	let newquestions = $('#questionadd').val().split(/\n/).reverse()
 	for (var question of newquestions){
 	    if(question != '' && ! questions.includes(question)){

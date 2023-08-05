@@ -1,6 +1,7 @@
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin:10;
+    background-color: #ddd;
 }
 a:link { color: #0000f0 ; }
 a:visited { color: #0000f0 ; }
@@ -10,7 +11,7 @@ a {
 
 .answers {
     padding:10;
-    background-color:yellow;
+    background-color:#fff;
 }
 .answer {
     color: black;
@@ -28,9 +29,9 @@ a {
     border-radius: 7px;
     font-size: 20px;
 }
-.answeradd {
+.answeraddbutton {
     color: black;
-    background-color: #ddd;
+    background-color: #fff;
     margin: 10;
     border: 0;
     padding: 10;
@@ -44,7 +45,7 @@ a {
 
 .questions {
     padding:10;
-    background-color:yellow;
+    background-color: #fff;
 }
 .question {
     color: black;
@@ -62,9 +63,9 @@ a {
     border-radius: 7px;
     font-size: 20px;
 }
-.questionadd {
+.questionaddbutton {
     color: black;
-    background-color: #ddd;
+    background-color: #fff;
     margin: 10;
     border: 0;
     padding: 10;
