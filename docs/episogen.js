@@ -1,7 +1,12 @@
 
 fetch('https://s3-ap-northeast-1.amazonaws.com/masui.org/f/b/fbf92f88a64ddfd86ae8ce1c1329f6bf.json')
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+	questions = data.questions
+	answers = data.answers
+	display()
+    })
+    //.then((data) => console.log(data))
 
 var answers = [
     "滋賀", "神戸", "池袋", "大町", "鍋屋横丁"
