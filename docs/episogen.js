@@ -1,7 +1,6 @@
 
-fetch('https://s3-ap-northeast-1.amazonaws.com/masui.org/f/b/fbf92f88a64ddfd86ae8ce1c1329f6bf.json', {
-    mode: 'no-cors' })
-    .then((response) => response.text())
+fetch('https://s3-ap-northeast-1.amazonaws.com/masui.org/f/b/fbf92f88a64ddfd86ae8ce1c1329f6bf.json')
+    .then((response) => response.json())
     .then((data) => console.log(data))
 
 var answers = [
