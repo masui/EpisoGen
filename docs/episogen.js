@@ -82,7 +82,7 @@ $(function() {
     });
     if(args['data']){
 	//fetch('https://s3-ap-northeast-1.amazonaws.com/masui.org/f/b/fbf92f88a64ddfd86ae8ce1c1329f6bf.json')
-	fetch(args[data])
+	fetch(args['data'])
 	    .then((response) => response.json())
 	    .then((data) => {
 		questions = data.questions
