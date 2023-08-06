@@ -1,13 +1,4 @@
 
-fetch('https://s3-ap-northeast-1.amazonaws.com/masui.org/f/b/fbf92f88a64ddfd86ae8ce1c1329f6bf.json')
-    .then((response) => response.json())
-    .then((data) => {
-	questions = data.questions
-	answers = data.answers
-	display()
-    })
-    //.then((data) => console.log(data))
-
 var answers = [
     "滋賀", "神戸", "池袋", "大町", "鍋屋横丁"
 ]
@@ -84,6 +75,22 @@ function handleFileSelect(evt) {
 
 
 $(function() {
+
+    document.location.search.substring(1).split('&').forEach((s) => {
+	let [name, value] = s.split('=');
+	args[name] = decodeURIComponent(value);
+    });
+    if(args['data']){
+	//fetch('https://s3-ap-northeast-1.amazonaws.com/masui.org/f/b/fbf92f88a64ddfd86ae8ce1c1329f6bf.json')
+	fetch(args[data])
+	    .then((response) => response.json())
+	    .then((data) => {
+		questions = data.questions
+		answers = data.answers
+		display()
+	    })
+    }
+
     display()
     $('#write').on('click', function(e) {
 	alert('ダウンロードフォルダのepisopass.jsonにデータを書き出します')
