@@ -115,5 +115,16 @@ $(function() {
     $('#fileSelect').on('click', function(e){
 	$('#read').click();
     })
+    
+    $('#episoq').on('click', function(e){
+	n = questions.length;
+	nquestions = Number($('#nquestions').val())
+	while (n) {
+            const i = Math.floor(Math.random() * n--);
+            [questions[i], questions[n]] = [questions[n], questions[i]];
+	}
+	window.location.href = `http://EpisoPass.com/episopass.html?questions=${questions.slice(0,nquestions).join(';')}&answers=${answers.join(';')}`;
+
+    })
 });
 
